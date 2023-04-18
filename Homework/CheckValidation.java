@@ -3,6 +3,10 @@
 package Homework;
 
 public interface CheckValidation {
-    boolean checkLogin() throws Exception;
-    boolean checkPassword() throws Exception;
+    default boolean checkLogin() {
+        return true;
+    }
+    default boolean checkPassword() {
+        return true;
+    }
 }
