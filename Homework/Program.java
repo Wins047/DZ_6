@@ -1,11 +1,9 @@
 package Homework;
 
-import static Homework.Validate.validateLogin;
-import static Homework.Validate.validatePassword;
-
 public class Program {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
 
         System.out.println("Проверка логина:");
         Validate loginTest = new Validate("tdr5656rr", "126@$<.,_9120");
@@ -40,7 +38,7 @@ public class Program {
             System.out.println("Неудача: " + ex.getMessage());
         }
     }
-}
+
 
 
 

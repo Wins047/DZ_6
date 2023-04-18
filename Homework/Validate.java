@@ -18,22 +18,20 @@ class Validate implements CheckValidation {
         passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$");
     }
 
-    // Проверка логина
-    public static boolean validateLogin(Validate validate) throws BadLoginFormatException {
-        if (!validate.checkLogin()) {
-            throw new BadLoginFormatException("Логин должн быть правильным");
-        } else {
-            return true;
+    public boolean checkLogin() throws Exception {
+        Matcher matcher = loginPattern.matcher(login);
+        if (!matcher.matches()) {
+            throw new Exception("Invalid login");
         }
+        return true;
     }
 
-    // Проверка пароля
-    public static boolean validatePassword(Validate validate) throws BadPasswordFormatException {
-        if (!validate.checkPassword()) {
-            throw new BadPasswordFormatException("Пароль должн быть правильным");
-        } else {
-            return true;
+    public boolean checkPassword() throws Exception {
+        Matcher matcher = passwordPattern.matcher(password);
+        if (!matcher.matches()) {
+            throw new Exception("Invalid password");
         }
+        return true;
     }
 
 }
